@@ -5,14 +5,14 @@ import 'package:tesse_business_owner/controllers/forgot%20password/forgort_passw
 import 'package:tesse_business_owner/screens/forgot%20password/forgot_pass_verify_email.dart';
 import 'package:tesse_business_owner/widgets/buttons.dart';
 import 'package:tesse_business_owner/widgets/inputs.dart';
-import 'package:tesse_business_owner/widgets/reagister_header.dart';
+import 'package:tesse_business_owner/widgets/register_header.dart';
 
 class ForgotPassEnterEmail extends StatelessWidget {
   const ForgotPassEnterEmail({super.key});
 
   @override
   Widget build(BuildContext context) {
-    ForgotPasswordController controller = Get.find();
+    // ForgotPasswordController controller = Get.find();
 
     return Scaffold(
       body: Column(

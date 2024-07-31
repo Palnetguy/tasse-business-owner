@@ -1,12 +1,15 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:get/get.dart';
 
 import 'package:tesse_business_owner/constants/constants.dart';
+import 'package:tesse_business_owner/screens/register/login.dart';
+import 'package:tesse_business_owner/screens/register/register.dart';
 import 'package:tesse_business_owner/widgets/buttons.dart';
 
-class OnBoading extends StatelessWidget {
-  const OnBoading({super.key});
+class OnBoarding extends StatelessWidget {
+  const OnBoarding({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -46,14 +49,20 @@ class OnBoading extends StatelessWidget {
                 height: 35,
               ),
               // buttons
-              const LongButtonWithIconWidget(
+              LongButtonWithIconWidget(
                 iconPath: tasseUserSharingSvg,
-                text: 'Business Owner',
+                text: 'Create Account',
+                onclickFunction: () {
+                  Get.offAll(() => const RegisterScreen());
+                },
               ),
-              const LongButtonWithIconWidget(
+              LongButtonWithIconWidget(
                 iconPath: tasseUserMultipleSvg,
-                text: 'Employee',
+                text: 'Login Now',
                 isFilled: false,
+                onclickFunction: () {
+                  Get.offAll(() => const LoginScreen());
+                },
               ),
 
               const SizedBox(

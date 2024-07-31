@@ -1,6 +1,5 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 
 import 'package:tesse_business_owner/constants/constants.dart';
@@ -245,7 +244,7 @@ class PopUpForAddShopCategory extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 15),
-          InputField(
+          const InputField(
             lable: 'Name',
             hintText: 'eg.hotel',
           ),

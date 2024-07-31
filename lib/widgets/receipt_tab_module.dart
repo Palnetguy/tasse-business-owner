@@ -44,7 +44,7 @@ class ReceiptTabModule extends StatelessWidget {
                   ),
                   children: [
                     TextSpan(
-                      text: '#' + receiptNumber.toString(),
+                      text: '#$receiptNumber',
                       style: const TextStyle(
                         fontSize: 14,
                         fontWeight: FontWeight.w500,

@@ -1,7 +1,5 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 
@@ -10,7 +8,6 @@ import 'package:tesse_business_owner/screens/user%20profile/edit_password.dart';
 import 'package:tesse_business_owner/screens/user%20profile/edit_profile.dart';
 import 'package:tesse_business_owner/widgets/buttons.dart';
 import 'package:tesse_business_owner/widgets/main_header.dart';
-import 'package:tesse_business_owner/widgets/pop_up_for_subscription.dart';
 
 class UserProfile extends StatelessWidget {
   const UserProfile({super.key});
@@ -307,7 +304,7 @@ class _Heading extends StatelessWidget {
 }
 
 class _PopUpForLogout extends StatelessWidget {
-  const _PopUpForLogout({super.key});
+  const _PopUpForLogout();
 
   @override
   Widget build(BuildContext context) {
@@ -370,7 +367,7 @@ class _PopUpForLogout extends StatelessWidget {
 }
 
 class _PopUpForDeleteAccount extends StatelessWidget {
-  const _PopUpForDeleteAccount({super.key});
+  const _PopUpForDeleteAccount();
 
   @override
   Widget build(BuildContext context) {

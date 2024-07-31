@@ -19,7 +19,7 @@ class CustomerProfile extends StatelessWidget {
     return Scaffold(
       body: Column(
         children: [
-          const HeaderSect(),
+          const HeaderProfile(),
 
           // rander each section according to the buttons in header
 
@@ -90,8 +90,8 @@ class CustomerProfile extends StatelessWidget {
 
 // ----
 // widgets
-class HeaderSect extends StatelessWidget {
-  const HeaderSect({
+class HeaderProfile extends StatelessWidget {
+  const HeaderProfile({
     super.key,
   });
 

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:tesse_business_owner/screens/Supplier/supplier_profile.dart';
 import 'package:tesse_business_owner/widgets/buttons.dart';
 import 'package:tesse_business_owner/widgets/inputs.dart';
 import 'package:tesse_business_owner/widgets/secondary_app_bar.dart';
@@ -43,7 +45,9 @@ class AddSupplier extends StatelessWidget {
                 ),
                 ButtonNoIconWidget(
                   text: 'Save',
-                  onclickFunction: () {},
+                  onclickFunction: () {
+                    Get.off(() => const SupplierProfile());
+                  },
                 )
               ],
             ),

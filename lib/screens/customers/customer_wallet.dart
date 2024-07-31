@@ -1,13 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 
 import 'package:tesse_business_owner/constants/constants.dart';
 import 'package:tesse_business_owner/controllers/customers/customers_controller.dart';
 import 'package:tesse_business_owner/widgets/buttons.dart';
-import 'package:tesse_business_owner/widgets/inputs.dart';
 import 'package:tesse_business_owner/widgets/main_header.dart';
-import 'package:tesse_business_owner/widgets/nointernet_widget.dart';
 
 import '../../widgets/pop_up_for_deposite_amount.dart';
 import '../../widgets/receipt_tab_module.dart';
@@ -22,7 +19,7 @@ class CustomerWallet extends StatelessWidget {
     return Scaffold(
       body: Column(
         children: [
-          const HeaderSect(),
+          const HeaderProfile(),
           GetBuilder<CustomersController>(
             init: CustomersController(),
             initState: (_) {},
@@ -50,7 +47,6 @@ class CustomerWallet extends StatelessWidget {
                         child: Text('Usage'),
                       ),
                     );
-                  
             },
           ),
           Padding(
@@ -77,8 +73,8 @@ class CustomerWallet extends StatelessWidget {
   }
 }
 
-class HeaderSect extends StatelessWidget {
-  const HeaderSect({
+class HeaderProfile extends StatelessWidget {
+  const HeaderProfile({
     super.key,
   });
 

@@ -87,44 +87,44 @@ class RegisterHeader extends StatelessWidget {
             ),
           ),
           // back button
-          Align(
-            alignment: const Alignment(-.9, -.4),
-            child: GestureDetector(
-              onTap: () {
-                Get.back();
-              },
-              child: Container(
-                width: 78,
-                height: 32,
-                decoration: BoxDecoration(
-                  color: tassePrimaryWhite,
-                  borderRadius: BorderRadius.circular(100),
-                ),
-                child: const Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Icon(
-                      Icons.arrow_back_ios_new_rounded,
-                      size: 18,
-                      color: tassePrimaryRed,
-                    ),
-                    SizedBox(
-                      width: 5,
-                    ),
-                    Text(
-                      'Back',
-                      style: TextStyle(
-                        fontSize: 14,
-                        fontWeight: FontWeight.w400,
-                        color: tassePrimaryRed,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ),
-          ),
+          // Align(
+          //   alignment: const Alignment(-.9, -.4),
+          //   child: GestureDetector(
+          //     onTap: () {
+          //       Get.back();
+          //     },
+          //     child: Container(
+          //       width: 78,
+          //       height: 32,
+          //       decoration: BoxDecoration(
+          //         color: tassePrimaryWhite,
+          //         borderRadius: BorderRadius.circular(100),
+          //       ),
+          //       child: const Row(
+          //         mainAxisAlignment: MainAxisAlignment.center,
+          //         crossAxisAlignment: CrossAxisAlignment.center,
+          //         children: [
+          //           Icon(
+          //             Icons.arrow_back_ios_new_rounded,
+          //             size: 18,
+          //             color: tassePrimaryRed,
+          //           ),
+          //           SizedBox(
+          //             width: 5,
+          //           ),
+          //           Text(
+          //             'Back',
+          //             style: TextStyle(
+          //               fontSize: 14,
+          //               fontWeight: FontWeight.w400,
+          //               color: tassePrimaryRed,
+          //             ),
+          //           ),
+          //         ],
+          //       ),
+          //     ),
+          //   ),
+          // ),
         ],
       ),
     );
