@@ -9,7 +9,7 @@ class Notifications extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    NotificationsController controller = Get.find();
+    // NotificationsController controller = Get.find();
 
     return Scaffold(
       body: Column(
@@ -21,23 +21,37 @@ class Notifications extends StatelessWidget {
             storeName: 'Electric Shop',
           ),
           // body
-          Expanded(
-            child: Container(
-              padding: const EdgeInsets.only(
-                left: 24,
-                right: 24,
-                top: 15,
-              ),
-              child: ListView.builder(
-                shrinkWrap: true,
-                padding: const EdgeInsets.all(0),
-                itemCount: 3,
-                itemBuilder: (BuildContext context, int index) {
-                  return const NotificationTab();
-                },
-              ),
-            ),
-          ),
+          GetBuilder<NotificationsController>(
+              init: NotificationsController(),
+              builder: (ctrl) {
+                return Expanded(
+                  child: Container(
+                    padding: const EdgeInsets.only(
+                      left: 24,
+                      right: 24,
+                      top: 15,
+                    ),
+                    child: ListView.builder(
+                      shrinkWrap: true,
+                      padding: const EdgeInsets.all(0),
+                      itemCount: ctrl.notifications.length,
+                      itemBuilder: (BuildContext context, int index) {
+                        final notification = ctrl.notifications[index];
+                        return Dismissible(
+                          key: Key(notification),
+                          onDismissed: (direction) {
+                            ctrl.deleteNotification(index);
+                          },
+                          background: Container(
+                            color: tassePrimaryRed,
+                          ),
+                          child: const NotificationTab(),
+                        );
+                      },
+                    ),
+                  ),
+                );
+              }),
         ],
       ),
     );

@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:tesse_business_owner/constants/constants.dart';
-import 'package:tesse_business_owner/controllers/forgot%20password/forgort_password_controller.dart';
 import 'package:tesse_business_owner/widgets/buttons.dart';
 import 'package:tesse_business_owner/widgets/inputs.dart';
-import 'package:tesse_business_owner/widgets/reagister_header.dart';
+import 'package:tesse_business_owner/widgets/register_header.dart';
 
 import 'pop_up_for_changed_password.dart';
 
@@ -13,7 +12,7 @@ class ForgotPassEnterNewPassEmail extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    ForgotPasswordController controller = Get.find();
+    // ForgotPasswordController controller = Get.find();
 
     return Scaffold(
       body: Column(

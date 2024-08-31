@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:tesse_business_owner/constants/constants.dart';
+import 'package:tesse_business_owner/screens/register/login.dart';
 import 'package:tesse_business_owner/widgets/buttons.dart';
 
 class PopUpForChangedPassword extends StatelessWidget {
@@ -52,7 +53,8 @@ class PopUpForChangedPassword extends StatelessWidget {
           ButtonNoIconWidget(
             text: 'Done',
             onclickFunction: () {
-              Get.back();
+              // Get.back();
+              Get.offAll(() => const LoginScreen());
             },
           )
         ],

@@ -265,13 +265,13 @@ class _DropDownInputFieldState extends State<DropDownInputField> {
       children: [
         Text(
           widget.lable,
-          style: TextStyle(
+          style: const TextStyle(
             fontSize: 14,
             fontWeight: FontWeight.w400,
             color: tasseBlackColor,
           ),
         ),
-        SizedBox(height: 8),
+        const SizedBox(height: 8),
         TextField(
           controller: _controller,
           readOnly: true,
@@ -279,7 +279,7 @@ class _DropDownInputFieldState extends State<DropDownInputField> {
             _showOptionsDialog(context);
           },
           decoration: InputDecoration(
-            suffixIcon: Icon(
+            suffixIcon: const Icon(
               Icons.keyboard_arrow_down_rounded,
               size: 16,
               color: tasseTextBlack,

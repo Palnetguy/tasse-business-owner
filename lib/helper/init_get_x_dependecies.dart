@@ -25,5 +25,6 @@ class InitGetXDependenicies implements Bindings {
     Get.lazyPut(() => ShopController());
     Get.lazyPut(() => AttendantsController());
     Get.lazyPut(() => UserProfileController());
+    Get.lazyPut(() => SuppliersController());
   }
 }

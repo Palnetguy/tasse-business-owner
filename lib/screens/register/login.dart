@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:tesse_business_owner/constants/constants.dart';
-import 'package:tesse_business_owner/controllers/register/businesss_owner_login_controller.dart';
+import 'package:tesse_business_owner/screens/forgot%20password/forgot_pass_enter_email.dart';
+import 'package:tesse_business_owner/screens/home/home_screen.dart';
 import 'package:tesse_business_owner/screens/register/register.dart';
 import 'package:tesse_business_owner/widgets/buttons.dart';
 import 'package:tesse_business_owner/widgets/inputs.dart';
-import 'package:tesse_business_owner/widgets/reagister_header.dart';
+import 'package:tesse_business_owner/widgets/register_header.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
@@ -13,7 +14,7 @@ class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // controller
-    BusinessOwnerLogInController controller = Get.find();
+    // BusinessOwnerLogInController controller = Get.find();
 
     return Scaffold(
       body: Column(
@@ -57,7 +58,9 @@ class LoginScreen extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
                       GestureDetector(
-                        onTap: () {},
+                        onTap: () {
+                          Get.to(() => const ForgotPassEnterEmail());
+                        },
                         child: const Text(
                           'Forgot Password',
                           // textAlign: TextAlign.end,
@@ -75,8 +78,11 @@ class LoginScreen extends StatelessWidget {
                   const SizedBox(
                     height: 40.5,
                   ),
-                  const ButtonNoIconWidget(
+                  ButtonNoIconWidget(
                     text: 'Sign In',
+                    onclickFunction: () {
+                      Get.offAll(() => const HomeScreen());
+                    },
                   ),
 
                   Row(
@@ -99,7 +105,7 @@ class LoginScreen extends StatelessWidget {
                           style: TextStyle(
                             color: tassePrimaryRed,
                             fontSize: 14,
-                            fontWeight: FontWeight.w400,
+                            fontWeight: FontWeight.w600,
                           ),
                         ),
                       ),

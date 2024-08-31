@@ -28,7 +28,7 @@ class MainHeaderWidget extends StatelessWidget {
               color: tassePrimaryRed,
               child: Align(
                 alignment:
-                    isLonger! ? Alignment(-1.5, -3) : Alignment(-1.5, -5),
+                    isLonger! ? const Alignment(-1.5, -3) : const Alignment(-1.5, -5),
                 // alignment: const Alignment(-1.5, -5),
                 child: SizedBox(
                   height: 216,

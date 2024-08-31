@@ -1,14 +1,18 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+import 'package:get/get.dart';
 
 import 'package:tesse_business_owner/constants/constants.dart';
+
+import '../../controllers/register/businesss_owner_register_controller.dart';
 
 class SplashScreen extends StatelessWidget {
   const SplashScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    // Initialize the controller here, it will start the timer in its onInit method
+    final BusinessOwnerRegisterController controller =
+        Get.find<BusinessOwnerRegisterController>();
     return Scaffold(
       body: Container(
         color: tassePrimaryRed,
@@ -99,4 +103,3 @@ class SplashScreen extends StatelessWidget {
     );
   }
 }
-

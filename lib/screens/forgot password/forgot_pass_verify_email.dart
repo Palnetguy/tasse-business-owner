@@ -5,14 +5,14 @@ import 'package:tesse_business_owner/constants/constants.dart';
 import 'package:tesse_business_owner/controllers/forgot%20password/forgort_password_controller.dart';
 import 'package:tesse_business_owner/screens/forgot%20password/forgot_pass_new_password_email.dart';
 import 'package:tesse_business_owner/widgets/buttons.dart';
-import 'package:tesse_business_owner/widgets/reagister_header.dart';
+import 'package:tesse_business_owner/widgets/register_header.dart';
 
 class ForgotPassVerifyEmail extends StatelessWidget {
   const ForgotPassVerifyEmail({super.key});
 
   @override
   Widget build(BuildContext context) {
-    ForgotPasswordController controller = Get.find();
+    // ForgotPasswordController controller = Get.find();
 
     return Scaffold(
       body: Column(

@@ -1,22 +1,22 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 
 import 'package:tesse_business_owner/constants/constants.dart';
-import 'package:tesse_business_owner/controllers/home/home_controller.dart';
+import 'package:tesse_business_owner/screens/Supplier/suppliers.dart';
 import 'package:tesse_business_owner/screens/notifications/notifications.dart';
 import 'package:tesse_business_owner/widgets/main_header.dart';
 import 'package:tesse_business_owner/widgets/pop_up_for_subscription.dart';
+
+import '../../widgets/select_shop_bottom_sheet.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    HomeController controller = Get.find();
+    // HomeController controller = Get.find();
 
     return Scaffold(
       body: Column(
@@ -284,11 +284,13 @@ class HomeScreen extends StatelessWidget {
           // body
 
           const SizedBox(height: 35),
-          const Padding(
-            padding: EdgeInsets.symmetric(horizontal: 25),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 25),
             child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Row(
+                const Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
                     BodyTab(
                       title: 'Stock',
@@ -310,22 +312,28 @@ class HomeScreen extends StatelessWidget {
                     ),
                   ],
                 ),
-                SizedBox(height: 25),
+                const SizedBox(height: 25),
                 Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
-                    BodyTab(
+                    const BodyTab(
                       title: 'Expense',
                       svgUrl: tasseExpenseSvg,
                       svgColorUrl: tasseIconColorRed,
                       svgBgColorUrl: tasseIconBgColorRed,
                     ),
-                    BodyTab(
-                      title: 'Suppliers',
-                      svgUrl: tasseSuppliersSvg,
-                      svgColorUrl: tasseIconColorGreenDarker,
-                      svgBgColorUrl: tasseIconBgColorGreenDarker,
+                    GestureDetector(
+                      onTap: () {
+                        Get.to(() => const Suppliers());
+                      },
+                      child: const BodyTab(
+                        title: 'Suppliers',
+                        svgUrl: tasseSuppliersSvg,
+                        svgColorUrl: tasseIconColorGreenDarker,
+                        svgBgColorUrl: tasseIconBgColorGreenDarker,
+                      ),
                     ),
-                    BodyTab(
+                    const BodyTab(
                       title: 'Customers',
                       svgUrl: tasseExpenseSvg,
                       svgColorUrl: tasseIconColorDarkerBlue,
@@ -333,8 +341,9 @@ class HomeScreen extends StatelessWidget {
                     ),
                   ],
                 ),
-                SizedBox(height: 25),
-                Row(
+                const SizedBox(height: 25),
+                const Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
                     BodyTab(
                       title: 'Report',
@@ -348,7 +357,8 @@ class HomeScreen extends StatelessWidget {
                       svgColorUrl: tasseIconColorYellow,
                       svgBgColorUrl: tasseIconBgColorYellow,
                     ),
-                    Expanded(flex: 3, child: SizedBox())
+                    SizedBox(),
+                    // Expanded(flex: 2, child: SizedBox())
                   ],
                 ),
               ],
@@ -397,126 +407,6 @@ class HomeScreen extends StatelessWidget {
   }
 }
 
-class SelectShopContent extends StatelessWidget {
-  const SelectShopContent({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return ListView(
-      shrinkWrap: true,
-      children: [
-        // header
-        const SelectShopHeader(),
-        // line
-        Container(
-          margin: const EdgeInsets.symmetric(horizontal: 20),
-          width: double.infinity,
-          height: 1.5,
-          color: tasseSelectLineColor,
-        ),
-        const SizedBox(
-          height: 5,
-        ),
-        //
-        ShopTile(
-          text: 'New Shop',
-          onclick: () {},
-        ),
-        ShopTile(
-          text: 'Old Shop',
-          onclick: () {},
-        ),
-        ShopTile(
-          text: 'Electric Shop',
-          onclick: () {},
-        ),
-      ],
-    );
-  }
-}
-
-class SelectShopHeader extends StatelessWidget {
-  const SelectShopHeader({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return ListTile(
-      leading: const Text(
-        'Select Shop',
-        style: TextStyle(
-          color: tasseTextBlack,
-          fontWeight: FontWeight.w500,
-          fontSize: 14,
-        ),
-      ),
-      trailing: GestureDetector(
-        onTap: () {
-          Get.back();
-        },
-        child: Container(
-          padding: const EdgeInsets.all(2),
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(100),
-            border: Border.all(width: 1.5, color: tasseTextBlack),
-          ),
-          child: const Icon(
-            Icons.close_rounded,
-            size: 15,
-            color: tasseTextBlack,
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-class ShopTile extends StatelessWidget {
-  final VoidCallback? onclick;
-  final String text;
-
-  const ShopTile({
-    super.key,
-    this.onclick,
-    required this.text,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () {
-        onclick;
-      },
-      child: ListTile(
-        title: Text(
-          text,
-          style: const TextStyle(
-            color: tasseTextBlack,
-            fontWeight: FontWeight.w500,
-            fontSize: 14,
-          ),
-        ),
-        leading: Container(
-          padding: const EdgeInsets.all(10),
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(100),
-            color: tasseSelectIconBgColor,
-          ),
-          child: SvgPicture.asset(
-            tasseSelectIconSvg,
-            color: tasseSelectIconColor,
-            height: 16,
-            width: 16,
-          ),
-        ),
-      ),
-    );
-  }
-}
-
 class BodyTab extends StatelessWidget {
   final String title;
   final String svgUrl;
@@ -534,39 +424,36 @@ class BodyTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      flex: 3,
-      child: SizedBox(
-        height: 61,
-        // color: Colors.red,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Container(
-              width: 36,
-              height: 36,
-              padding: const EdgeInsets.all(6),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(100),
-                color: svgBgColorUrl,
-              ),
-              child: SvgPicture.asset(
-                svgUrl,
-                color: svgColorUrl,
-                height: 20,
-                width: 20,
-              ),
+    return SizedBox(
+      height: 61,
+      // color: Colors.red,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Container(
+            width: 36,
+            height: 36,
+            padding: const EdgeInsets.all(6),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(100),
+              color: svgBgColorUrl,
             ),
-            Text(
-              title,
-              style: const TextStyle(
-                color: tasseTextBlack,
-                fontSize: 14,
-                fontWeight: FontWeight.w400,
-              ),
-            )
-          ],
-        ),
+            child: SvgPicture.asset(
+              svgUrl,
+              color: svgColorUrl,
+              height: 20,
+              width: 20,
+            ),
+          ),
+          Text(
+            title,
+            style: const TextStyle(
+              color: tasseTextBlack,
+              fontSize: 14,
+              fontWeight: FontWeight.w400,
+            ),
+          )
+        ],
       ),
     );
   }

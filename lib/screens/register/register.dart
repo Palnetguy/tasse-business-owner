@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:tesse_business_owner/constants/constants.dart';
-import 'package:tesse_business_owner/controllers/register/businesss_owner_register_controller.dart';
 import 'package:tesse_business_owner/screens/register/login.dart';
+import 'package:tesse_business_owner/screens/register/shop_registration.dart';
 import 'package:tesse_business_owner/widgets/buttons.dart';
 import 'package:tesse_business_owner/widgets/inputs.dart';
-import 'package:tesse_business_owner/widgets/reagister_header.dart';
+import 'package:tesse_business_owner/widgets/register_header.dart';
 
 class RegisterScreen extends StatelessWidget {
   const RegisterScreen({super.key});
@@ -14,7 +13,7 @@ class RegisterScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // controller
-    BusinessOwnerRegisterController controller = Get.find();
+    // BusinessOwnerRegisterController controller = Get.find();
 
     return Scaffold(
       body: Column(
@@ -70,20 +69,26 @@ class RegisterScreen extends StatelessWidget {
                   const SizedBox(
                     height: 40.5,
                   ),
-                  const ButtonNoIconWidget(
+                  ButtonNoIconWidget(
                     text: 'Create Account',
+                    onclickFunction: () {
+                      Get.off(() => const ShopRegistration());
+                    },
                   ),
 
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       const Text(
-                        'Create Account',
+                        'Already Have Acccount?',
                         style: TextStyle(
                           color: tasseTextBlack,
                           fontSize: 14,
                           fontWeight: FontWeight.w400,
                         ),
+                      ),
+                      const SizedBox(
+                        width: 10,
                       ),
                       GestureDetector(
                         onTap: () {
@@ -94,7 +99,7 @@ class RegisterScreen extends StatelessWidget {
                           style: TextStyle(
                             color: tassePrimaryRed,
                             fontSize: 14,
-                            fontWeight: FontWeight.w400,
+                            fontWeight: FontWeight.w600,
                           ),
                         ),
                       ),
