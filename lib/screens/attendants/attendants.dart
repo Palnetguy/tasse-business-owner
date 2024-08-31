@@ -30,9 +30,12 @@ class Attendants extends StatelessWidget {
             },
           ),
           const Expanded(child: SizedBox()),
-          const LongButtonWithIconWidget(
-            text: 'Add Attendant',
-            iconPath: tasseAddCircleSvg,
+          Container(
+            margin: const EdgeInsets.symmetric(horizontal: 10),
+            child: const LongButtonWithIconWidget(
+              text: 'Add Attendant',
+              iconPath: tasseAddCircleSvg,
+            ),
           ),
           const SizedBox(height: 100)
         ],
