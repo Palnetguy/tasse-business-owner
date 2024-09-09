@@ -1,16 +1,16 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
+// ignore_for_file: public_member_api_docs, sort_constructors_first, non_constant_identifier_names
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
 import 'package:tesse_business_owner/constants/constants.dart';
 
-class LongButtonWithIconWidget extends StatelessWidget {
+class LongButtonWithIconSvg extends StatelessWidget {
   final bool? isFilled;
   final String text;
   final String iconPath;
 
   final VoidCallback? onclickFunction;
-  const LongButtonWithIconWidget({
+  const LongButtonWithIconSvg({
     super.key,
     this.isFilled = true,
     required this.text,
@@ -38,8 +38,58 @@ class LongButtonWithIconWidget extends StatelessWidget {
               iconPath,
               height: 20,
               width: 20,
+              // ignore: deprecated_member_use
               color: isFilled! ? tassePrimaryWhite : tassePrimaryRed,
             ),
+            const SizedBox(
+              width: 10,
+            ),
+            Text(
+              text,
+              style: TextStyle(
+                color: isFilled! ? tassePrimaryWhite : tassePrimaryRed,
+                fontSize: 14,
+                fontWeight: FontWeight.w500,
+              ),
+            )
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class LongButtonWithIconWidget extends StatelessWidget {
+  final bool? isFilled;
+  final String text;
+  final Widget icon;
+
+  final VoidCallback? onclickFunction;
+  const LongButtonWithIconWidget({
+    super.key,
+    this.isFilled = true,
+    required this.text,
+    required this.icon,
+    this.onclickFunction,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: () {
+        onclickFunction!();
+      },
+      child: Container(
+        margin: const EdgeInsets.only(bottom: 20),
+        padding: const EdgeInsets.symmetric(vertical: 10.5),
+        decoration: BoxDecoration(
+            color: isFilled! ? tassePrimaryRed : tassePrimaryWhite,
+            borderRadius: BorderRadius.circular(5),
+            border: Border.all(color: tassePrimaryRed, width: 1)),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            icon,
             const SizedBox(
               width: 10,
             ),
@@ -61,13 +111,21 @@ class LongButtonWithIconWidget extends StatelessWidget {
 class ButtonNoIconWidget extends StatelessWidget {
   final bool? isFilled;
   final String text;
+  final Color? border_color;
+  final Color? text_color;
   final double? width;
+  final EdgeInsetsGeometry? margin;
+  final EdgeInsetsGeometry? padding;
   final VoidCallback? onclickFunction;
   const ButtonNoIconWidget({
     super.key,
     this.isFilled = true,
     required this.text,
+    this.border_color,
+    this.text_color,
     this.width,
+    this.margin,
+    this.padding,
     this.onclickFunction,
   });
 
@@ -79,19 +137,22 @@ class ButtonNoIconWidget extends StatelessWidget {
       },
       child: Container(
         width: width,
-        margin: const EdgeInsets.only(bottom: 20),
-        padding: const EdgeInsets.symmetric(vertical: 10.5),
+        margin: margin ?? const EdgeInsets.only(bottom: 20),
+        padding: padding ?? const EdgeInsets.symmetric(vertical: 10.5),
         decoration: BoxDecoration(
-            color: isFilled! ? tassePrimaryRed : tassePrimaryWhite,
+            color: isFilled! ? (tassePrimaryRed) : tassePrimaryWhite,
             borderRadius: BorderRadius.circular(5),
-            border: Border.all(color: tassePrimaryRed, width: 1)),
+            border:
+                Border.all(color: (border_color ?? tassePrimaryRed), width: 1)),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
               text,
               style: TextStyle(
-                color: isFilled! ? tassePrimaryWhite : tassePrimaryRed,
+                color: isFilled!
+                    ? tassePrimaryWhite
+                    : (text_color ?? tassePrimaryRed),
                 fontSize: 14,
                 fontWeight: FontWeight.w500,
               ),
@@ -219,6 +280,35 @@ class _MySliderButtonState extends State<SliderButtonCustWidget> {
           ),
         ),
       ],
+    );
+  }
+}
+
+class InputSetFnBtn extends StatelessWidget {
+  final IconData icon;
+  final VoidCallback? onClick;
+  const InputSetFnBtn({
+    super.key,
+    required this.icon,
+    this.onClick,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: onClick,
+      child: Container(
+        margin: const EdgeInsets.only(left: 16),
+        padding: const EdgeInsets.all(10),
+        decoration: BoxDecoration(
+          shape: BoxShape.circle,
+          border: Border.all(color: tasseSelectLineColor, width: 1),
+        ),
+        child: Icon(
+          icon,
+          size: 20,
+        ),
+      ),
     );
   }
 }

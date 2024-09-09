@@ -32,9 +32,9 @@ class AttendantProfile extends StatelessWidget {
                   lable: 'User Name*',
                   controller: TextEditingController(text: 'Siyum Khan'),
                 ),
-                const DropDownInputField(
+                DropDownInputField(
                   hintText: '',
-                  options: ['Electric shop'],
+                  options: const ['Electric shop'],
                   lable: 'Shop Name*',
                   initialIndex: 0,
                 ),

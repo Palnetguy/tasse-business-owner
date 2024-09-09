@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:tesse_business_owner/constants/constants.dart';
 
 class RegisterHeader extends StatelessWidget {

@@ -51,7 +51,7 @@ class Shops extends StatelessWidget {
           ),
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 40),
-            child: const LongButtonWithIconWidget(
+            child: const LongButtonWithIconSvg(
               text: 'Add Shop',
               iconPath: tasseAddCircleSvg,
             ),
@@ -62,9 +62,6 @@ class Shops extends StatelessWidget {
     );
   }
 }
-
-
-
 
 class ShopTabModule extends StatelessWidget {
   final String shopName;

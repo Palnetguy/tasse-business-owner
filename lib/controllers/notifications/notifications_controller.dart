@@ -1,7 +1,5 @@
-import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../screens/notifications/notifications.dart';
 
 class NotificationsController extends GetxController {
   RxBool isNotification = false.obs;

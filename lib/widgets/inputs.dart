@@ -90,6 +90,203 @@ class InputField extends StatelessWidget {
   }
 }
 
+class InputFieldSmall extends StatelessWidget {
+  final Function(String)? onChanged;
+  final String lable;
+  final bool? isPasswordFeild;
+  final bool? isReadOnly;
+  final String? hintText;
+  final int? minlines;
+  final TextEditingController? controller;
+  final Widget? suffixIcon;
+  final Widget? preffixIcon;
+
+  const InputFieldSmall({
+    super.key,
+    this.onChanged,
+    required this.lable,
+    this.isPasswordFeild = false,
+    this.isReadOnly = false,
+    this.hintText,
+    this.minlines = 1,
+    this.controller,
+    this.suffixIcon,
+    this.preffixIcon,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          lable,
+          style: const TextStyle(
+            color: tasseTextBlack,
+            fontSize: 12,
+            fontWeight: FontWeight.w400,
+            // fontFamily: 'Inter',
+          ),
+        ),
+        const SizedBox(
+          height: 10,
+        ),
+        // input
+        Container(
+          height: 32,
+          child: TextField(
+            readOnly: isReadOnly!,
+            controller: controller,
+            // maxLength: 100,
+            minLines: isPasswordFeild! ? 1 : minlines,
+            maxLines: isPasswordFeild! ? 1 : 10,
+            obscureText: isPasswordFeild!,
+            onChanged: (value) {
+              onChanged!(value);
+            },
+            cursorColor: tasseTextGray,
+            style: const TextStyle(
+              fontSize: 12,
+              fontWeight: FontWeight.w400,
+              fontFamily: 'Inter',
+            ),
+
+            decoration: InputDecoration(
+              suffixIcon: suffixIcon,
+              prefixIcon: preffixIcon,
+              hintStyle: const TextStyle(
+                color: tasseInputHintTextColor,
+                fontSize: 12,
+                fontWeight: FontWeight.w400,
+              ),
+              hintText: hintText,
+              filled: true,
+              fillColor: Colors.transparent,
+              border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(6),
+                borderSide: BorderSide(
+                  color: tasseSelectLineColor,
+                  width: 1,
+                ),
+              ),
+              enabledBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(6),
+                borderSide: BorderSide(
+                  color: tasseSelectLineColor,
+                  width: 1,
+                ),
+              ),
+              focusedBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(6),
+                borderSide: BorderSide(
+                  color: tasseSelectLineColor,
+                  width: 1,
+                ),
+              ),
+              contentPadding: const EdgeInsets.symmetric(
+                horizontal: 8,
+                vertical: 6,
+              ),
+            ),
+          ),
+        ),
+        const SizedBox(
+          height: 20,
+        ),
+      ],
+    );
+  }
+}
+
+class InputFieldFlexible extends StatelessWidget {
+  final Function(String)? onChanged;
+  final String lable;
+  final bool? isPasswordFeild;
+  final bool? isReadOnly;
+  final String? hintText;
+  final int? minlines;
+  final TextEditingController? controller;
+  final Widget? suffixIcon;
+  final Widget? preffixIcon;
+
+  const InputFieldFlexible({
+    super.key,
+    this.onChanged,
+    required this.lable,
+    this.isPasswordFeild = false,
+    this.isReadOnly = false,
+    this.hintText,
+    this.minlines = 1,
+    this.controller,
+    this.suffixIcon,
+    this.preffixIcon,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Expanded(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            lable,
+            style: const TextStyle(
+              color: tasseTextBlack,
+              fontSize: 14,
+              fontWeight: FontWeight.w400,
+              // fontFamily: 'Inter',
+            ),
+          ),
+          const SizedBox(
+            height: 10,
+          ),
+          // input
+          TextField(
+            readOnly: isReadOnly!,
+            controller: controller,
+            // maxLength: 100,
+            minLines: isPasswordFeild! ? 1 : minlines,
+            maxLines: isPasswordFeild! ? 1 : 10,
+            obscureText: isPasswordFeild!,
+            onChanged: (value) {
+              onChanged!(value);
+            },
+            cursorColor: tasseTextGray,
+            style: const TextStyle(
+              fontSize: 14,
+              fontWeight: FontWeight.w400,
+              fontFamily: 'Inter',
+            ),
+            decoration: InputDecoration(
+              suffixIcon: suffixIcon,
+              prefixIcon: preffixIcon,
+              hintStyle: const TextStyle(
+                color: tasseInputHintTextColor,
+                fontSize: 14,
+                fontWeight: FontWeight.w400,
+              ),
+              hintText: hintText,
+              filled: true,
+              fillColor: tasseInputPrimaryBgColor,
+              border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(6),
+                borderSide: BorderSide.none,
+              ),
+              contentPadding: const EdgeInsets.symmetric(
+                horizontal: 16,
+                vertical: 12,
+              ),
+            ),
+          ),
+          const SizedBox(
+            height: 20,
+          ),
+        ],
+      ),
+    );
+  }
+}
+
 class InputFieldWithDropDown extends StatelessWidget {
   final TextEditingController? controller;
   final Function(String)? onChanged;
@@ -107,82 +304,87 @@ class InputFieldWithDropDown extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          lable,
-          style: const TextStyle(
-            color: tasseTextBlack,
-            fontSize: 14,
-            fontWeight: FontWeight.w400,
-            // fontFamily: 'Inter',
-          ),
-        ),
-        const SizedBox(
-          height: 10,
-        ),
-        // input
-        TextField(
-          obscureText: isPasswordFeild!,
-          onChanged: (value) {
-            onChanged!(value);
-          },
-          cursorColor: tasseTextGray,
-          style: const TextStyle(
-            fontSize: 14,
-            fontWeight: FontWeight.w400,
-            fontFamily: 'Inter',
-          ),
-          decoration: InputDecoration(
-            suffixIcon: IconButton(
-              onPressed: () {},
-              icon: const Icon(
-                Icons.keyboard_arrow_down_sharp,
-                size: 16,
-                color: tasseTextBlack,
-              ),
-            ),
-            hintStyle: const TextStyle(
-              color: tasseInputHintTextColor,
+    return Expanded(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            lable,
+            style: const TextStyle(
+              color: tasseTextBlack,
               fontSize: 14,
               fontWeight: FontWeight.w400,
-            ),
-            hintText: hintText,
-            filled: true,
-            fillColor: tasseInputPrimaryBgColor,
-            border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(6),
-              borderSide: BorderSide.none,
-            ),
-            contentPadding: const EdgeInsets.symmetric(
-              horizontal: 16,
-              vertical: 12,
+              // fontFamily: 'Inter',
             ),
           ),
-        ),
-        const SizedBox(
-          height: 20,
-        )
-      ],
+          const SizedBox(
+            height: 10,
+          ),
+          // input
+          TextField(
+            obscureText: isPasswordFeild!,
+            onChanged: (value) {
+              onChanged!(value);
+            },
+            cursorColor: tasseTextGray,
+            style: const TextStyle(
+              fontSize: 14,
+              fontWeight: FontWeight.w400,
+              fontFamily: 'Inter',
+            ),
+            decoration: InputDecoration(
+              suffixIcon: IconButton(
+                onPressed: () {},
+                icon: const Icon(
+                  Icons.keyboard_arrow_down_sharp,
+                  size: 16,
+                  color: tasseTextBlack,
+                ),
+              ),
+              hintStyle: const TextStyle(
+                color: tasseInputHintTextColor,
+                fontSize: 14,
+                fontWeight: FontWeight.w400,
+              ),
+              hintText: hintText,
+              filled: true,
+              fillColor: tasseInputPrimaryBgColor,
+              border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(6),
+                borderSide: BorderSide.none,
+              ),
+              contentPadding: const EdgeInsets.symmetric(
+                horizontal: 16,
+                vertical: 12,
+              ),
+            ),
+          ),
+          const SizedBox(
+            height: 20,
+          )
+        ],
+      ),
     );
   }
 }
 
+// ignore: must_be_immutable
 class DropDownInputField extends StatefulWidget {
-  final String hintText;
+  final String? hintText;
   final List<String> options;
   final ValueChanged<String>? onChanged;
   final String lable;
   final int? initialIndex;
+  TextEditingController? controller;
 
-  const DropDownInputField({
+  DropDownInputField({
     super.key,
-    required this.hintText,
+    this.hintText,
     required this.options,
     this.onChanged,
     required this.lable,
     this.initialIndex,
+    this.controller,
   });
 
   @override
@@ -260,6 +462,7 @@ class _DropDownInputFieldState extends State<DropDownInputField> {
 
   @override
   Widget build(BuildContext context) {
+    widget.controller = _controller;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -309,9 +512,11 @@ class _DropDownInputFieldState extends State<DropDownInputField> {
 
 class SearchInput extends StatelessWidget {
   final Function(String value)? onChanged;
+  final String? placeholder;
   const SearchInput({
     super.key,
     this.onChanged,
+    this.placeholder,
   });
 
   @override
@@ -335,7 +540,7 @@ class SearchInput extends StatelessWidget {
           fontSize: 12,
           fontWeight: FontWeight.w400,
         ),
-        hintText: 'Search shop',
+        hintText: placeholder ?? 'Search shop',
         filled: true,
         fillColor: Colors.transparent,
         enabledBorder: OutlineInputBorder(

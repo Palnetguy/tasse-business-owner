@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:tesse_business_owner/helper/init_get_x_dependecies.dart';
-import 'package:tesse_business_owner/screens/register/shop_registration.dart';
-
-import 'screens/onboarding/splashscreen.dart';
+import 'package:tesse_business_owner/screens/pos/receipt_pos.dart';
 
 void main() {
   runApp(const MyApp());
@@ -21,7 +19,7 @@ class MyApp extends StatelessWidget {
         // colorScheme: ColorScheme.fromSeed(seedColor: tassePrimaryRed),
         useMaterial3: true,
       ),
-      home: const SplashScreen(),
+      home: const ReceiptPos(),
     );
   }
 }

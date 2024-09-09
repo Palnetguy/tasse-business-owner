@@ -95,5 +95,6 @@ const tasseuserEditSvg = 'assets/svgs/user-edit.svg';
 const tasselockSvg = 'assets/svgs/lock.svg';
 const tasseDeleteSvg = 'assets/svgs/delete.svg';
 const tasseLogoutSvg = 'assets/svgs/log_out.svg';
+const tasseLogoSvg = 'assets/images/logo.jpeg';
 
 const tasseNoInternetTextColor = Color(0xFF51504E);

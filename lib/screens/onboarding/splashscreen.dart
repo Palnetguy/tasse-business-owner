@@ -11,6 +11,7 @@ class SplashScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // Initialize the controller here, it will start the timer in its onInit method
+    // ignore: unused_local_variable
     final BusinessOwnerRegisterController controller =
         Get.find<BusinessOwnerRegisterController>();
     return Scaffold(

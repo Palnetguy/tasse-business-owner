@@ -1,12 +1,13 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 
 import 'package:flutter/material.dart';
+
 import 'package:tesse_business_owner/constants/constants.dart';
 import 'package:tesse_business_owner/widgets/secondary_app_bar.dart';
 
 class CustomTabControllerWithAppBar extends StatelessWidget {
   final int length;
-
+  final Widget? middleWidget;
   final bool isXIcon;
   final String title;
   final String storeName;
@@ -17,6 +18,7 @@ class CustomTabControllerWithAppBar extends StatelessWidget {
   const CustomTabControllerWithAppBar({
     super.key,
     required this.length,
+    this.middleWidget,
     required this.isXIcon,
     required this.title,
     required this.storeName,
@@ -36,7 +38,8 @@ class CustomTabControllerWithAppBar extends StatelessWidget {
               title: title,
               storeName: storeName,
             ),
-
+            //
+            middleWidget == null ? const SizedBox() : middleWidget!,
             //
             TabBar(
               indicatorSize: TabBarIndicatorSize.tab,

@@ -49,14 +49,14 @@ class OnBoarding extends StatelessWidget {
                 height: 35,
               ),
               // buttons
-              LongButtonWithIconWidget(
+              LongButtonWithIconSvg(
                 iconPath: tasseUserSharingSvg,
                 text: 'Create Account',
                 onclickFunction: () {
                   Get.offAll(() => const RegisterScreen());
                 },
               ),
-              LongButtonWithIconWidget(
+              LongButtonWithIconSvg(
                 iconPath: tasseUserMultipleSvg,
                 text: 'Login Now',
                 isFilled: false,
