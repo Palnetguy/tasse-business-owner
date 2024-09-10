@@ -1,8 +1,10 @@
 import 'package:get/get.dart';
 import 'package:tesse_business_owner/controllers/attendants/attendants_controller.dart';
 import 'package:tesse_business_owner/controllers/customers/customers_controller.dart';
+import 'package:tesse_business_owner/controllers/expenses/expenses_controller.dart';
 import 'package:tesse_business_owner/controllers/forgot%20password/forgort_password_controller.dart';
 import 'package:tesse_business_owner/controllers/home/home_controller.dart';
+import 'package:tesse_business_owner/controllers/layout/layout_controller.dart';
 import 'package:tesse_business_owner/controllers/notifications/notifications_controller.dart';
 import 'package:tesse_business_owner/controllers/pos/pos_controller.dart';
 import 'package:tesse_business_owner/controllers/register/businesss_owner_login_controller.dart';
@@ -31,5 +33,7 @@ class InitGetXDependenicies implements Bindings {
     Get.lazyPut(() => StocksController());
     Get.lazyPut(() => PosController());
     Get.lazyPut(() => SalesAndOrderController());
+    Get.lazyPut(() => ExpensesController());
+    Get.lazyPut(() => LayOutController());
   }
 }

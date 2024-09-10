@@ -10,8 +10,8 @@ class Attendants extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Column(
+    return 
+       Column(
         children: [
           const SecondaryAppBarNoBack(
             title: 'Attendants',
@@ -39,7 +39,7 @@ class Attendants extends StatelessWidget {
           ),
           const SizedBox(height: 100)
         ],
-      ),
+      
     );
   }
 }

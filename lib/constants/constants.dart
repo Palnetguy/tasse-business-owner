@@ -97,4 +97,26 @@ const tasseDeleteSvg = 'assets/svgs/delete.svg';
 const tasseLogoutSvg = 'assets/svgs/log_out.svg';
 const tasseLogoSvg = 'assets/images/logo.jpeg';
 
+const tasseDueSalesSvg = 'assets/svgs/due_sales_svg.svg';
+const tasseExpenseReportSvg = 'assets/svgs/expenses_report_svg.svg';
+const tasseIncomeReportSvg = 'assets/svgs/income_report_svg.svg';
+const tasseProductsMovementSvg = 'assets/svgs/products_movement_svg.svg';
+const tassePurchaseReportSvg = 'assets/svgs/purchase_report_svg.svg';
+const tasseSPEBraphicalAnalysisSvg =
+    'assets/svgs/s_p_e_graphical_analysis_svg.svg';
+const tasseSalesReportSvg = 'assets/svgs/sales_report_svg.svg';
+const tasseStockReportSvg = 'assets/svgs/stock_report_svg.svg';
+const tasseStockTakeReportSvg = 'assets/svgs/stock_take_report_svg.svg';
+
+const tasseHomeSvg = 'assets/svgs/home-03.svg';
+const tasseHomeUnSvg = 'assets/svgs/home-03_unselected.svg';
+const tasseShoppingBasketSvg = 'assets/svgs/shopping-basket-01.svg';
+const tasseaUserGroupSvg = 'assets/svgs/user-group.svg';
+const tasseUserSvg = 'assets/svgs/user.svg';
+// const tasseHomeUnSvg = 'assets/svgs/home-03_unselected.svg';
+const tasseShoppingBasketUnSvg = 'assets/svgs/shopping-basket-01_un.svg';
+const tasseaUserGroupUnSvg = 'assets/svgs/user-group_un.svg';
+const tasseUserUnSvg = 'assets/svgs/user_un.svg';
+
 const tasseNoInternetTextColor = Color(0xFF51504E);
+const tasseGrey200Color = Color(0xFF9B9A99);

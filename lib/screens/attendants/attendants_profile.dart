@@ -98,7 +98,7 @@ class AttendantProfile extends StatelessWidget {
                           // buttonColor: Colors.red,
                           middleTextStyle: const TextStyle(fontSize: 0),
                           // this is the dialog in a nother file in forgort pass word folder
-                          content: const PopUpForConfirmDelete(),
+                          content: const _PopUpForConfirmDelete(),
                           barrierDismissible: false,
                         );
                       },
@@ -178,8 +178,8 @@ class AttendantProfile extends StatelessWidget {
   }
 }
 
-class PopUpForConfirmDelete extends StatelessWidget {
-  const PopUpForConfirmDelete({super.key});
+class _PopUpForConfirmDelete extends StatelessWidget {
+  const _PopUpForConfirmDelete({super.key});
 
   @override
   Widget build(BuildContext context) {

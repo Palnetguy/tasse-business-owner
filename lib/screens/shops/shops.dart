@@ -12,53 +12,51 @@ class Shops extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Column(
-        children: [
-          const SecondaryAppBarNoBack(
-            title: 'Shops',
-            storeName: 'Electic shop',
+    return Column(
+      children: [
+        const SecondaryAppBarNoBack(
+          title: 'Shops',
+          storeName: 'Electic shop',
+        ),
+        const SizedBox(height: 10),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 20),
+          child: SearchInput(
+            onChanged: (value) {},
           ),
-          const SizedBox(height: 10),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20),
-            child: SearchInput(
-              onChanged: (value) {},
+        ),
+        Expanded(
+          child: Padding(
+            padding: const EdgeInsets.only(top: 10, left: 20, right: 20),
+            child: ListView(
+              shrinkWrap: true,
+              padding: const EdgeInsets.all(0),
+              children: const [
+                ShopTabModule(
+                  shopName: 'New Shop',
+                  location: 'Dhaka, Bangladadesh',
+                  typeOfShop: 'Retail',
+                  isDefault: true,
+                ),
+                ShopTabModule(
+                  shopName: 'Electric shop',
+                  location: 'Dhaka, Bangladadesh',
+                  typeOfShop: 'Retail',
+                  isDefault: false,
+                ),
+              ],
             ),
           ),
-          Expanded(
-            child: Padding(
-              padding: const EdgeInsets.only(top: 10, left: 20, right: 20),
-              child: ListView(
-                shrinkWrap: true,
-                padding: const EdgeInsets.all(0),
-                children: const [
-                  ShopTabModule(
-                    shopName: 'New Shop',
-                    location: 'Dhaka, Bangladadesh',
-                    typeOfShop: 'Retail',
-                    isDefault: true,
-                  ),
-                  ShopTabModule(
-                    shopName: 'Electric shop',
-                    location: 'Dhaka, Bangladadesh',
-                    typeOfShop: 'Retail',
-                    isDefault: false,
-                  ),
-                ],
-              ),
-            ),
+        ),
+        Container(
+          padding: const EdgeInsets.symmetric(horizontal: 40),
+          child: const LongButtonWithIconSvg(
+            text: 'Add Shop',
+            iconPath: tasseAddCircleSvg,
           ),
-          Container(
-            padding: const EdgeInsets.symmetric(horizontal: 40),
-            child: const LongButtonWithIconSvg(
-              text: 'Add Shop',
-              iconPath: tasseAddCircleSvg,
-            ),
-          ),
-          const SizedBox(height: 100),
-        ],
-      ),
+        ),
+        const SizedBox(height: 100),
+      ],
     );
   }
 }

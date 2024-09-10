@@ -164,21 +164,21 @@ class InputFieldSmall extends StatelessWidget {
               fillColor: Colors.transparent,
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(6),
-                borderSide: BorderSide(
+                borderSide: const BorderSide(
                   color: tasseSelectLineColor,
                   width: 1,
                 ),
               ),
               enabledBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(6),
-                borderSide: BorderSide(
+                borderSide: const BorderSide(
                   color: tasseSelectLineColor,
                   width: 1,
                 ),
               ),
               focusedBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(6),
-                borderSide: BorderSide(
+                borderSide: const BorderSide(
                   color: tasseSelectLineColor,
                   width: 1,
                 ),
@@ -376,6 +376,8 @@ class DropDownInputField extends StatefulWidget {
   final String lable;
   final int? initialIndex;
   TextEditingController? controller;
+  final Widget? sufixWidget;
+  final bool? noDropIcon;
 
   DropDownInputField({
     super.key,
@@ -385,6 +387,8 @@ class DropDownInputField extends StatefulWidget {
     required this.lable,
     this.initialIndex,
     this.controller,
+    this.sufixWidget,
+    this.noDropIcon,
   });
 
   @override
@@ -475,35 +479,46 @@ class _DropDownInputFieldState extends State<DropDownInputField> {
           ),
         ),
         const SizedBox(height: 8),
-        TextField(
-          controller: _controller,
-          readOnly: true,
-          onTap: () {
-            _showOptionsDialog(context);
-          },
-          decoration: InputDecoration(
-            suffixIcon: const Icon(
-              Icons.keyboard_arrow_down_rounded,
-              size: 16,
-              color: tasseTextBlack,
+        Row(
+          crossAxisAlignment: CrossAxisAlignment.end,
+          children: [
+            Expanded(
+              child: TextField(
+                controller: _controller,
+                readOnly: true,
+                onTap: () {
+                  _showOptionsDialog(context);
+                },
+                decoration: InputDecoration(
+                  suffixIcon:
+                      widget.noDropIcon == null || widget.noDropIcon == false
+                          ? const Icon(
+                              Icons.keyboard_arrow_down_rounded,
+                              size: 16,
+                              color: tasseTextBlack,
+                            )
+                          : const SizedBox(),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(6),
+                    borderSide: BorderSide.none,
+                  ),
+                  contentPadding: const EdgeInsets.symmetric(
+                    horizontal: 16,
+                    vertical: 12,
+                  ),
+                  hintStyle: const TextStyle(
+                    color: tasseInputHintTextColor,
+                    fontSize: 14,
+                    fontWeight: FontWeight.w400,
+                  ),
+                  hintText: widget.hintText,
+                  filled: true,
+                  fillColor: tasseInputPrimaryBgColor,
+                ),
+              ),
             ),
-            border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(6),
-              borderSide: BorderSide.none,
-            ),
-            contentPadding: const EdgeInsets.symmetric(
-              horizontal: 16,
-              vertical: 12,
-            ),
-            hintStyle: const TextStyle(
-              color: tasseInputHintTextColor,
-              fontSize: 14,
-              fontWeight: FontWeight.w400,
-            ),
-            hintText: widget.hintText,
-            filled: true,
-            fillColor: tasseInputPrimaryBgColor,
-          ),
+            widget.sufixWidget == null ? const SizedBox() : widget.sufixWidget!,
+          ],
         ),
       ],
     );

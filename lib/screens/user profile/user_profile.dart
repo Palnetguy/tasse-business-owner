@@ -14,101 +14,99 @@ class UserProfile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          const _Heading(),
-          Padding(
-            padding: const EdgeInsets.only(left: 24, right: 24, top: 24),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                const Text(
-                  'Settings',
-                  style: TextStyle(
-                    color: tasseBlackColor,
-                    fontSize: 14,
-                    fontWeight: FontWeight.w500,
-                  ),
-                ),
-                const SizedBox(height: 16),
-                ProfileTab(
-                  title: 'Edit Profile',
-                  svgUrl: tasseuserEditSvg,
-                  onTap: () {
-                    Get.to(() => const EditProfile());
-                  },
-                ),
-                ProfileTab(
-                  title: 'Password Settings',
-                  svgUrl: tasselockSvg,
-                  onTap: () {
-                    Get.to(() => const EditPassword());
-                  },
-                ),
-                ProfileTab(
-                  title: 'Delete Account',
-                  svgUrl: tasseDeleteSvg,
-                  onTap: () {
-                    Get.defaultDialog(
-                      title: "",
-                      titleStyle: const TextStyle(fontSize: 0),
-                      titlePadding: const EdgeInsets.all(0),
-                      contentPadding: const EdgeInsets.all(0),
-                      // middleText: 'Tests vsfs sfs sss ss ss s',
-                      backgroundColor: Colors.transparent,
-                      // buttonColor: Colors.red,
-                      middleTextStyle: const TextStyle(fontSize: 0),
-                      // this is the dialog in a nother file in forgort pass word folder
-                      content: const _PopUpForDeleteAccount(),
-                      barrierDismissible: false,
-                    );
-                  },
-                ),
-                ProfileTab(
-                  title: 'Logout',
-                  svgUrl: tasseLogoutSvg,
-                  onTap: () {
-                    Get.defaultDialog(
-                      title: "",
-                      titleStyle: const TextStyle(fontSize: 0),
-                      titlePadding: const EdgeInsets.all(0),
-                      contentPadding: const EdgeInsets.all(0),
-                      // middleText: 'Tests vsfs sfs sss ss ss s',
-                      backgroundColor: Colors.transparent,
-                      // buttonColor: Colors.red,
-                      middleTextStyle: const TextStyle(fontSize: 0),
-                      // this is the dialog in a nother file in forgort pass word folder
-                      content: const _PopUpForLogout(),
-                      barrierDismissible: false,
-                    );
-                  },
-                ),
-                _UpgradeButton(
-                  onTap: () {},
-                ),
-              ],
-            ),
-          ),
-          const Expanded(child: SizedBox()),
-          const Row(
-            mainAxisAlignment: MainAxisAlignment.center,
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        const _Heading(),
+        Padding(
+          padding: const EdgeInsets.only(left: 24, right: 24, top: 24),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
-                'Developed by TAK Kinship Devs',
-                textAlign: TextAlign.center,
+              const Text(
+                'Settings',
                 style: TextStyle(
-                  color: tasseTextBlack,
-                  fontSize: 12,
-                  fontWeight: FontWeight.w400,
+                  color: tasseBlackColor,
+                  fontSize: 14,
+                  fontWeight: FontWeight.w500,
                 ),
+              ),
+              const SizedBox(height: 16),
+              ProfileTab(
+                title: 'Edit Profile',
+                svgUrl: tasseuserEditSvg,
+                onTap: () {
+                  Get.to(() => const EditProfile());
+                },
+              ),
+              ProfileTab(
+                title: 'Password Settings',
+                svgUrl: tasselockSvg,
+                onTap: () {
+                  Get.to(() => const EditPassword());
+                },
+              ),
+              ProfileTab(
+                title: 'Delete Account',
+                svgUrl: tasseDeleteSvg,
+                onTap: () {
+                  Get.defaultDialog(
+                    title: "",
+                    titleStyle: const TextStyle(fontSize: 0),
+                    titlePadding: const EdgeInsets.all(0),
+                    contentPadding: const EdgeInsets.all(0),
+                    // middleText: 'Tests vsfs sfs sss ss ss s',
+                    backgroundColor: Colors.transparent,
+                    // buttonColor: Colors.red,
+                    middleTextStyle: const TextStyle(fontSize: 0),
+                    // this is the dialog in a nother file in forgort pass word folder
+                    content: const _PopUpForDeleteAccount(),
+                    barrierDismissible: false,
+                  );
+                },
+              ),
+              ProfileTab(
+                title: 'Logout',
+                svgUrl: tasseLogoutSvg,
+                onTap: () {
+                  Get.defaultDialog(
+                    title: "",
+                    titleStyle: const TextStyle(fontSize: 0),
+                    titlePadding: const EdgeInsets.all(0),
+                    contentPadding: const EdgeInsets.all(0),
+                    // middleText: 'Tests vsfs sfs sss ss ss s',
+                    backgroundColor: Colors.transparent,
+                    // buttonColor: Colors.red,
+                    middleTextStyle: const TextStyle(fontSize: 0),
+                    // this is the dialog in a nother file in forgort pass word folder
+                    content: const _PopUpForLogout(),
+                    barrierDismissible: false,
+                  );
+                },
+              ),
+              _UpgradeButton(
+                onTap: () {},
               ),
             ],
           ),
-          const SizedBox(height: 24)
-        ],
-      ),
+        ),
+        const Expanded(child: SizedBox()),
+        const Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              'Developed by TAK Kinship Devs',
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                color: tasseTextBlack,
+                fontSize: 12,
+                fontWeight: FontWeight.w400,
+              ),
+            ),
+          ],
+        ),
+        const SizedBox(height: 24)
+      ],
     );
   }
 }
