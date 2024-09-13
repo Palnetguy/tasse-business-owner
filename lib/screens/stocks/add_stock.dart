@@ -4,6 +4,7 @@ import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 
 import 'package:tesse_business_owner/constants/constants.dart';
+import 'package:tesse_business_owner/screens/stocks/products.dart';
 import 'package:tesse_business_owner/widgets/buttons.dart';
 import 'package:tesse_business_owner/widgets/inputs.dart';
 import 'package:tesse_business_owner/widgets/secondary_app_bar.dart';
@@ -170,7 +171,12 @@ class AddStock extends StatelessWidget {
                     ],
                   ),
                   const SizedBox(height: 20),
-                  const ButtonFlexibleNoIconWidget(text: 'Add'),
+                  ButtonFlexibleNoIconWidget(
+                    text: 'Add',
+                    onclickFunction: () {
+                      Get.to(const Products());
+                    },
+                  ),
                   const SizedBox(height: 50),
                 ],
               ),

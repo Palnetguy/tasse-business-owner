@@ -18,7 +18,7 @@ class EditExpenses extends StatelessWidget {
           // app bar
           const SecondaryAppBar(
             isXIcon: false,
-            title: 'Add Expenses',
+            title: 'Edit Expenses',
             storeName: '',
           ),
           // firm

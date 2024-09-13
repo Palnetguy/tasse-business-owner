@@ -1,6 +1,5 @@
 import 'package:get/get.dart';
 
-
 class NotificationsController extends GetxController {
   RxBool isNotification = false.obs;
   final notifications =

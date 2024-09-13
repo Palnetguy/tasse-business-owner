@@ -185,30 +185,34 @@ class ButtonFlexibleNoIconWidget extends StatelessWidget {
         onTap: () {
           onclickFunction!();
         },
-        child: Container(
-          // width: width,
-          margin: const EdgeInsets.only(bottom: 20),
-          padding: const EdgeInsets.symmetric(vertical: 10.5),
-          decoration: BoxDecoration(
-            color: isFilled! ? tassePrimaryRed : Colors.transparent,
-            borderRadius: BorderRadius.circular(5),
-            border: Border.all(
-                color: isFilled! ? tassePrimaryRed : tasseSelectLineColor,
-                width: 1),
-          ),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text(
-                text,
-                style: TextStyle(
-                  color: isFilled! ? tassePrimaryWhite : tasseTextBlack,
-                  fontSize: 14,
-                  fontWeight: FontWeight.w500,
-                ),
-              )
-            ],
-          ),
+        child: Column(
+          children: [
+            Container(
+              // width: width,
+              margin: const EdgeInsets.only(bottom: 20),
+              padding: const EdgeInsets.symmetric(vertical: 10.5),
+              decoration: BoxDecoration(
+                color: isFilled! ? tassePrimaryRed : Colors.transparent,
+                borderRadius: BorderRadius.circular(5),
+                border: Border.all(
+                    color: isFilled! ? tassePrimaryRed : tasseSelectLineColor,
+                    width: 1),
+              ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    text,
+                    style: TextStyle(
+                      color: isFilled! ? tassePrimaryWhite : tasseTextBlack,
+                      fontSize: 14,
+                      fontWeight: FontWeight.w500,
+                    ),
+                  )
+                ],
+              ),
+            ),
+          ],
         ),
       ),
     );

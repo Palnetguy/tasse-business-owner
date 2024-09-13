@@ -1,11 +1,20 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 
 import 'package:tesse_business_owner/constants/constants.dart';
 import 'package:tesse_business_owner/screens/Supplier/suppliers.dart';
+import 'package:tesse_business_owner/screens/cashflow/cashflow.dart';
+import 'package:tesse_business_owner/screens/customers/customers.dart';
+import 'package:tesse_business_owner/screens/expense/expenses.dart';
 import 'package:tesse_business_owner/screens/notifications/notifications.dart';
+import 'package:tesse_business_owner/screens/pos/create_sale_pos.dart';
+import 'package:tesse_business_owner/screens/profit%20and%20expense%20summary/net_profit_p_e.dart';
+import 'package:tesse_business_owner/screens/report/report.dart';
+import 'package:tesse_business_owner/screens/sales%20and%20orders/sales_and_order.dart';
+import 'package:tesse_business_owner/screens/stocks/stocks.dart';
 import 'package:tesse_business_owner/widgets/main_header.dart';
 import 'package:tesse_business_owner/widgets/pop_up_for_subscription.dart';
 
@@ -286,7 +295,7 @@ class HomeScreen extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              const Row(
+              Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   BodyTab(
@@ -294,18 +303,27 @@ class HomeScreen extends StatelessWidget {
                     svgUrl: tasseStokeSvg,
                     svgColorUrl: tasseIconColorLightBlue,
                     svgBgColorUrl: tasseIconBgColorLightBlue,
+                    onTap: () {
+                      Get.to(const Stocks());
+                    },
                   ),
                   BodyTab(
                     title: 'Sales & Order',
                     svgUrl: tasseSalesOrderSvg,
                     svgColorUrl: tasseIconColorPurple,
                     svgBgColorUrl: tasseIconBgColorPurple,
+                    onTap: () {
+                      Get.to(const SalesAndOrder());
+                    },
                   ),
                   BodyTab(
                     title: 'Pos',
                     svgUrl: tassePosSvg,
                     svgColorUrl: tasseIconColorGreen,
                     svgBgColorUrl: tasseIconBgColorGreen,
+                    onTap: () {
+                      Get.to(const CreateSalesPos());
+                    },
                   ),
                 ],
               ),
@@ -313,33 +331,37 @@ class HomeScreen extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
-                  const BodyTab(
+                  BodyTab(
                     title: 'Expense',
                     svgUrl: tasseExpenseSvg,
                     svgColorUrl: tasseIconColorRed,
                     svgBgColorUrl: tasseIconBgColorRed,
+                    onTap: () {
+                      Get.to(Expenses());
+                    },
                   ),
-                  GestureDetector(
+                  BodyTab(
+                    title: 'Suppliers',
+                    svgUrl: tasseSuppliersSvg,
+                    svgColorUrl: tasseIconColorGreenDarker,
+                    svgBgColorUrl: tasseIconBgColorGreenDarker,
                     onTap: () {
                       Get.to(() => const Suppliers());
                     },
-                    child: const BodyTab(
-                      title: 'Suppliers',
-                      svgUrl: tasseSuppliersSvg,
-                      svgColorUrl: tasseIconColorGreenDarker,
-                      svgBgColorUrl: tasseIconBgColorGreenDarker,
-                    ),
                   ),
-                  const BodyTab(
+                  BodyTab(
                     title: 'Customers',
                     svgUrl: tasseExpenseSvg,
                     svgColorUrl: tasseIconColorDarkerBlue,
                     svgBgColorUrl: tasseIconBgColorDarkerBlue,
+                    onTap: () {
+                      Get.to(Customers());
+                    },
                   ),
                 ],
               ),
               const SizedBox(height: 25),
-              const Row(
+              Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   BodyTab(
@@ -347,12 +369,18 @@ class HomeScreen extends StatelessWidget {
                     svgUrl: tasseReportSvg,
                     svgColorUrl: tasseIconColorOrange,
                     svgBgColorUrl: tasseIconBgColorOrange,
+                    onTap: () {
+                      Get.to(Report());
+                    },
                   ),
                   BodyTab(
                     title: 'Cashflow',
                     svgUrl: tasseCashFlowSvg,
                     svgColorUrl: tasseIconColorYellow,
                     svgBgColorUrl: tasseIconBgColorYellow,
+                    onTap: () {
+                      Get.to(CashFlow());
+                    },
                   ),
                   SizedBox(),
                   // Expanded(flex: 2, child: SizedBox())
@@ -361,41 +389,46 @@ class HomeScreen extends StatelessWidget {
             ],
           ),
         ),
-        Container(
-          margin: const EdgeInsets.only(left: 25, right: 25, top: 40),
-          padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 20),
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(8),
-            color: tasseTodayProfitGgColor,
-          ),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Row(
-                children: [
-                  SvgPicture.asset(
-                    tasseUserSharingSvg,
-                    width: 20,
-                    height: 20,
-                    color: tasseTodayProfitIconColor,
-                  ),
-                  const SizedBox(width: 10),
-                  const Text(
-                    'Profit & Expenses Summary',
-                    style: TextStyle(
-                      color: tasseTextBlack,
-                      fontSize: 14,
-                      fontWeight: FontWeight.w400,
+        GestureDetector(
+          onTap: () {
+            Get.to(NetProfitPE());
+          },
+          child: Container(
+            margin: const EdgeInsets.only(left: 25, right: 25, top: 40),
+            padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 20),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(8),
+              color: tasseTodayProfitGgColor,
+            ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Row(
+                  children: [
+                    SvgPicture.asset(
+                      tasseUserSharingSvg,
+                      width: 20,
+                      height: 20,
+                      color: tasseTodayProfitIconColor,
                     ),
-                  ),
-                ],
-              ),
-              const Icon(
-                Icons.arrow_forward_ios_rounded,
-                size: 20,
-                color: tasseArrowIconColor,
-              )
-            ],
+                    const SizedBox(width: 10),
+                    const Text(
+                      'Profit & Expenses Summary',
+                      style: TextStyle(
+                        color: tasseTextBlack,
+                        fontSize: 14,
+                        fontWeight: FontWeight.w400,
+                      ),
+                    ),
+                  ],
+                ),
+                const Icon(
+                  Icons.arrow_forward_ios_rounded,
+                  size: 20,
+                  color: tasseArrowIconColor,
+                )
+              ],
+            ),
           ),
         ),
       ],
@@ -410,46 +443,52 @@ class BodyTab extends StatelessWidget {
   final Color svgColorUrl;
   final Color svgBgColorUrl;
 
+  final Function()? onTap;
+
   const BodyTab({
     super.key,
     required this.title,
     required this.svgUrl,
     required this.svgColorUrl,
     required this.svgBgColorUrl,
+    this.onTap,
   });
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: 61,
-      // color: Colors.red,
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Container(
-            width: 36,
-            height: 36,
-            padding: const EdgeInsets.all(6),
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(100),
-              color: svgBgColorUrl,
+    return GestureDetector(
+      onTap: onTap,
+      child: SizedBox(
+        height: 61,
+        // color: Colors.red,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Container(
+              width: 36,
+              height: 36,
+              padding: const EdgeInsets.all(6),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(100),
+                color: svgBgColorUrl,
+              ),
+              child: SvgPicture.asset(
+                svgUrl,
+                color: svgColorUrl,
+                height: 20,
+                width: 20,
+              ),
             ),
-            child: SvgPicture.asset(
-              svgUrl,
-              color: svgColorUrl,
-              height: 20,
-              width: 20,
-            ),
-          ),
-          Text(
-            title,
-            style: const TextStyle(
-              color: tasseTextBlack,
-              fontSize: 14,
-              fontWeight: FontWeight.w400,
-            ),
-          )
-        ],
+            Text(
+              title,
+              style: const TextStyle(
+                color: tasseTextBlack,
+                fontSize: 14,
+                fontWeight: FontWeight.w400,
+              ),
+            )
+          ],
+        ),
       ),
     );
   }

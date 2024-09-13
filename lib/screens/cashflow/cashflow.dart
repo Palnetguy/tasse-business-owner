@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:tesse_business_owner/constants/constants.dart';
+import 'package:tesse_business_owner/screens/cashflow/cashin.dart';
+import 'package:tesse_business_owner/screens/cashflow/cashout.dart';
 import 'package:tesse_business_owner/widgets/buttons.dart';
 import 'package:tesse_business_owner/widgets/secondary_app_bar.dart';
 
@@ -50,6 +53,9 @@ class CashFlow extends StatelessWidget {
                         border_color: tasseIconBgColorRed,
                         text_color: tassePrimaryRed,
                         isFilled: false,
+                        onclickFunction: () {
+                          Get.to(CashIn());
+                        },
                       ),
                     ),
                     SizedBox(width: 18),
@@ -59,6 +65,9 @@ class CashFlow extends StatelessWidget {
                         border_color: tasseIconBgColorRed,
                         text_color: tassePrimaryRed,
                         isFilled: false,
+                        onclickFunction: () {
+                          Get.to(CashOut());
+                        },
                       ),
                     ),
                   ],

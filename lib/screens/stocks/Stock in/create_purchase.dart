@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:tesse_business_owner/constants/constants.dart';
 import 'package:tesse_business_owner/controllers/stock/stock_controller.dart';
+import 'package:tesse_business_owner/screens/stocks/add_stock.dart';
 import 'package:tesse_business_owner/widgets/buttons.dart';
 import 'package:tesse_business_owner/widgets/inputs.dart';
 import 'package:tesse_business_owner/widgets/secondary_app_bar.dart';
@@ -205,16 +206,22 @@ class CreatePurchase extends StatelessWidget {
                       return Column(
                         children: [
                           controller.testProducts.isEmpty
-                              ? const LongButtonWithIconWidget(
+                              ? LongButtonWithIconWidget(
                                   text: 'Purchase Items',
                                   icon: Icon(
                                     Icons.add_circle_outline_rounded,
                                     size: 20,
                                     color: tassePrimaryWhite,
                                   ),
+                                  onclickFunction: () {
+                                    Get.to(AddStock());
+                                  },
                                 )
-                              : const ButtonNoIconWidget(
+                              : ButtonNoIconWidget(
                                   text: 'Create Purchase',
+                                  onclickFunction: () {
+                                    Get.to(AddStock());
+                                  },
                                 )
                         ],
                       );

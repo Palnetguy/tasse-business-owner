@@ -1,8 +1,12 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:get/get.dart';
 
 import 'package:tesse_business_owner/constants/constants.dart';
+import 'package:tesse_business_owner/screens/report/graph_report.dart';
+import 'package:tesse_business_owner/screens/report/purchase_report.dart';
+import 'package:tesse_business_owner/screens/report/sales_report_r.dart';
 import 'package:tesse_business_owner/widgets/secondary_app_bar.dart';
 
 class Report extends StatelessWidget {
@@ -28,6 +32,9 @@ class Report extends StatelessWidget {
                   name: 'Sales Report',
                   info: 'How much did you sell',
                   iconsSvg: tasseSalesReportSvg,
+                  onTap: () {
+                    Get.to(SalesReportR());
+                  },
                 ),
                 _ReportTab(
                   name: 'Due Sales',
@@ -38,6 +45,9 @@ class Report extends StatelessWidget {
                   name: 'Purchase Report',
                   info: 'How much did you buy',
                   iconsSvg: tassePurchaseReportSvg,
+                  onTap: () {
+                    Get.to(PurchaseReport());
+                  },
                 ),
                 _ReportTab(
                   name: 'Expense Report',
@@ -68,6 +78,9 @@ class Report extends StatelessWidget {
                   name: 'Sales, Profit and Expenses Graphical Analysis',
                   info: 'Sales, Profit and Expenses Graphical Analysis',
                   iconsSvg: tasseProductsMovementSvg,
+                  onTap: () {
+                    Get.to(GraphReport());
+                  },
                 ),
               ],
             ),
@@ -93,55 +106,58 @@ class _ReportTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: const EdgeInsets.only(bottom: 8),
-      padding: const EdgeInsets.all(12),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(8),
-        border: Border.all(
-          color: tasseBoaderGrayColor,
-          width: 1,
-        ),
-      ),
-      child: Row(
-        children: [
-          Container(
-            padding: const EdgeInsets.all(8),
-            decoration: const BoxDecoration(
-              shape: BoxShape.circle,
-              color: tasseIconBgColorOrange,
-            ),
-            child: SvgPicture.asset(
-              iconsSvg,
-              height: 20,
-            ),
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+        margin: const EdgeInsets.only(bottom: 8),
+        padding: const EdgeInsets.all(12),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(8),
+          border: Border.all(
+            color: tasseBoaderGrayColor,
+            width: 1,
           ),
-          const SizedBox(width: 8),
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  name,
-                  style: TextStyle(
-                    color: tasseTextGray,
-                    fontSize: 14,
-                    fontWeight: FontWeight.w500,
-                  ),
-                ),
-                SizedBox(height: 2),
-                Text(
-                  info,
-                  style: TextStyle(
-                    color: tasseTabUnselectedColor,
-                    fontSize: 12,
-                    fontWeight: FontWeight.w400,
-                  ),
-                ),
-              ],
+        ),
+        child: Row(
+          children: [
+            Container(
+              padding: const EdgeInsets.all(8),
+              decoration: const BoxDecoration(
+                shape: BoxShape.circle,
+                color: tasseIconBgColorOrange,
+              ),
+              child: SvgPicture.asset(
+                iconsSvg,
+                height: 20,
+              ),
             ),
-          )
-        ],
+            const SizedBox(width: 8),
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    name,
+                    style: TextStyle(
+                      color: tasseTextGray,
+                      fontSize: 14,
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
+                  SizedBox(height: 2),
+                  Text(
+                    info,
+                    style: TextStyle(
+                      color: tasseTabUnselectedColor,
+                      fontSize: 12,
+                      fontWeight: FontWeight.w400,
+                    ),
+                  ),
+                ],
+              ),
+            )
+          ],
+        ),
       ),
     );
   }

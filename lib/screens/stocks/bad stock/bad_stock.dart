@@ -1,7 +1,9 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import 'package:tesse_business_owner/constants/constants.dart';
+import 'package:tesse_business_owner/screens/stocks/bad%20stock/add_bad_stock.dart';
 import 'package:tesse_business_owner/widgets/buttons.dart';
 import 'package:tesse_business_owner/widgets/secondary_app_bar.dart';
 
@@ -128,6 +130,9 @@ class BadStock extends StatelessWidget {
             padding: EdgeInsets.only(left: 24, right: 24, top: 16),
             child: ButtonNoIconWidget(
               text: 'Add New',
+              onclickFunction: () {
+                Get.to(AddBadStock());
+              },
             ),
           )
         ],

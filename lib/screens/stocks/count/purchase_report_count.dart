@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:tesse_business_owner/constants/constants.dart';
+import 'package:tesse_business_owner/screens/stocks/count/count_history.dart';
 import 'package:tesse_business_owner/widgets/buttons.dart';
 import 'package:tesse_business_owner/widgets/inputs.dart';
 import 'package:tesse_business_owner/widgets/secondary_app_bar.dart';
@@ -95,6 +96,9 @@ class PurchasesReportCount extends StatelessWidget {
                         isFilled: false,
                         border_color: tasseBoaderGrayColor,
                         text_color: tasseTextBlack,
+                        onclickFunction: () {
+                          Get.to(CountHistory());
+                        },
                       ),
                     ],
                   ),

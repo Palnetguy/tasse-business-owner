@@ -8,6 +8,7 @@ import 'package:get/get.dart';
 
 import 'package:tesse_business_owner/constants/constants.dart';
 import 'package:tesse_business_owner/controllers/expenses/expenses_controller.dart';
+import 'package:tesse_business_owner/screens/expense/edit_expenses.dart';
 import 'package:tesse_business_owner/widgets/buttons.dart';
 import 'package:tesse_business_owner/widgets/secondary_app_bar.dart';
 
@@ -262,24 +263,29 @@ class _ExpenseTabModule extends StatelessWidget {
                     ),
                     SizedBox(height: 24),
                     // list
-                    Container(
-                      margin: EdgeInsets.only(bottom: 24),
-                      child: Row(
-                        children: [
-                          Icon(
-                            Icons.edit,
-                            color: tasseGray400Color,
-                          ),
-                          SizedBox(width: 16),
-                          Text(
-                            'Edit',
-                            style: const TextStyle(
-                              fontSize: 14,
-                              fontWeight: FontWeight.w400,
-                              color: tasseTextGray,
+                    GestureDetector(
+                      onTap: () {
+                        Get.to(EditExpenses());
+                      },
+                      child: Container(
+                        margin: EdgeInsets.only(bottom: 24),
+                        child: Row(
+                          children: [
+                            Icon(
+                              Icons.edit,
+                              color: tasseGray400Color,
                             ),
-                          )
-                        ],
+                            SizedBox(width: 16),
+                            Text(
+                              'Edit',
+                              style: const TextStyle(
+                                fontSize: 14,
+                                fontWeight: FontWeight.w400,
+                                color: tasseTextGray,
+                              ),
+                            )
+                          ],
+                        ),
                       ),
                     ),
                     GestureDetector(

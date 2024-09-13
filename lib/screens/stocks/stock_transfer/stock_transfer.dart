@@ -1,8 +1,10 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:get/get.dart';
 
 import 'package:tesse_business_owner/constants/constants.dart';
+import 'package:tesse_business_owner/screens/stocks/stock_transfer/stock_tranfer_choose_category.dart';
 import 'package:tesse_business_owner/widgets/buttons.dart';
 import 'package:tesse_business_owner/widgets/inputs.dart';
 import 'package:tesse_business_owner/widgets/secondary_app_bar.dart';
@@ -78,6 +80,9 @@ class StockTransfer extends StatelessWidget {
               isFilled: false,
               text: 'Transfer History',
               margin: EdgeInsets.all(0),
+              onclickFunction: () {
+                Get.to(StockTranferChooseCategory());
+              },
             ),
           )
         ],

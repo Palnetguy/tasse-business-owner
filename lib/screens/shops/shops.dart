@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:get/get.dart';
 
 import 'package:tesse_business_owner/constants/constants.dart';
+import 'package:tesse_business_owner/controllers/shop/shop_controller.dart';
+import 'package:tesse_business_owner/screens/shops/create_shop.dart';
+import 'package:tesse_business_owner/screens/shops/each_shop.dart';
 import 'package:tesse_business_owner/widgets/buttons.dart';
 import 'package:tesse_business_owner/widgets/inputs.dart';
 
@@ -12,6 +16,7 @@ class Shops extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    ShopController controller = Get.find();
     return Column(
       children: [
         const SecondaryAppBarNoBack(
@@ -31,7 +36,7 @@ class Shops extends StatelessWidget {
             child: ListView(
               shrinkWrap: true,
               padding: const EdgeInsets.all(0),
-              children: const [
+              children: [
                 ShopTabModule(
                   shopName: 'New Shop',
                   location: 'Dhaka, Bangladadesh',
@@ -43,6 +48,10 @@ class Shops extends StatelessWidget {
                   location: 'Dhaka, Bangladadesh',
                   typeOfShop: 'Retail',
                   isDefault: false,
+                  onTap: () {
+                    //
+                    Get.to(EachShop());
+                  },
                 ),
               ],
             ),
@@ -50,9 +59,12 @@ class Shops extends StatelessWidget {
         ),
         Container(
           padding: const EdgeInsets.symmetric(horizontal: 40),
-          child: const LongButtonWithIconSvg(
+          child: LongButtonWithIconSvg(
             text: 'Add Shop',
             iconPath: tasseAddCircleSvg,
+            onclickFunction: () {
+              Get.to(CreateShop());
+            },
           ),
         ),
         const SizedBox(height: 100),

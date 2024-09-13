@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
+import 'package:get/get.dart';
 import 'package:tesse_business_owner/constants/constants.dart';
+import 'package:tesse_business_owner/screens/sales%20and%20orders/sales_and_order_create_sales.dart';
+import 'package:tesse_business_owner/screens/sales%20and%20orders/sales_and_order_sales_report.dart';
+import 'package:tesse_business_owner/screens/sales%20and%20orders/sales_and_order_today.dart';
 import 'package:tesse_business_owner/widgets/buttons.dart';
 import 'package:tesse_business_owner/widgets/secondary_app_bar.dart';
 
@@ -58,27 +63,32 @@ class SalesAndOrder extends StatelessWidget {
                             ),
                           ),
                           const SizedBox(width: 8),
-                          const Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                'Today',
-                                style: TextStyle(
-                                  color: tasseTextGray,
-                                  fontSize: 14,
-                                  fontWeight: FontWeight.w500,
+                          GestureDetector(
+                            onTap: () {
+                              Get.to(SalesAndOrderToday());
+                            },
+                            child: const Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  'Today',
+                                  style: TextStyle(
+                                    color: tasseTextGray,
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.w500,
+                                  ),
                                 ),
-                              ),
-                              SizedBox(height: 2),
-                              Text(
-                                'View Today Sales',
-                                style: TextStyle(
-                                  color: tasseTabUnselectedColor,
-                                  fontSize: 12,
-                                  fontWeight: FontWeight.w500,
+                                SizedBox(height: 2),
+                                Text(
+                                  'View Today Sales',
+                                  style: TextStyle(
+                                    color: tasseTabUnselectedColor,
+                                    fontSize: 12,
+                                    fontWeight: FontWeight.w500,
+                                  ),
                                 ),
-                              ),
-                            ],
+                              ],
+                            ),
                           ),
                         ],
                       ),
@@ -201,6 +211,9 @@ class SalesAndOrder extends StatelessWidget {
             child: ButtonNoIconWidget(
               text: 'Add Sales',
               margin: EdgeInsets.all(0),
+              onclickFunction: () {
+                Get.to(CreateSaleSO());
+              },
             ),
           )
         ],

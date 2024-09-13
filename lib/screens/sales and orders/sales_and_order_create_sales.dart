@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 import 'package:tesse_business_owner/constants/constants.dart';
+import 'package:tesse_business_owner/screens/sales%20and%20orders/sales_and_order_select_product.dart';
 import 'package:tesse_business_owner/widgets/buttons.dart';
 import 'package:tesse_business_owner/widgets/inputs.dart';
 import 'package:tesse_business_owner/widgets/secondary_app_bar_with_prefix.dart';
@@ -83,7 +84,12 @@ class CreateSaleSO extends StatelessWidget {
                     size: 16,
                   ),
                 ),
-                const ButtonNoIconWidget(text: 'Choose items to sell'),
+                ButtonNoIconWidget(
+                  text: 'Choose items to sell',
+                  onclickFunction: () {
+                    Get.to(SelectProductSO());
+                  },
+                ),
 
                 // add items
 
