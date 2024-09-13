@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:tesse_business_owner/helper/init_get_x_dependecies.dart';
 import 'package:tesse_business_owner/screens/layout/layout.dart';
+import 'package:tesse_business_owner/screens/onboarding/splashscreen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -19,7 +20,7 @@ class MyApp extends StatelessWidget {
         // colorScheme: ColorScheme.fromSeed(seedColor: tassePrimaryRed),
         useMaterial3: true,
       ),
-      home: const Layout(),
+      home: const SplashScreen(),
     );
   }
 }
